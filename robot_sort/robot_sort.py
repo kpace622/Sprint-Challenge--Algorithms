@@ -96,9 +96,25 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # base case
+        if self.can_move_right is False:
+            return
 
+        # Check if robot is currently holding something, if not pick up item
+        if self._item is None: 
+            self.swap_item
+
+    def checkItem(self):
+        # if robot can move right, do so and then compare the held number to the number they are looking at
+        if move_right(self):
+        # If held number is smaller, swap numbers
+            if compare_item(self) == -1:
+                swap_item(self)
+        # If held number is larger, check if robot can move right, if so move right and check if next number is smaller by recursivly calling sort
+            elif compare_item(self) == 1:
+                sort(self)
+                
+        # continue iterating until list is sorted
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
